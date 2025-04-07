@@ -60,34 +60,96 @@ if (isset($_GET['teacher_id'])) {
 </head>
 <body>
 
-    <h2>Update Teacher Information</h2>
+<h2>Update Teacher Information</h2>
 
-    <form method="POST" action="">
-        <label for="teacher_id">Select Teacher:</label>
-        <select name="teacher_id" id="teacher_id" required>
-            <option value="">Select a Teacher</option>
-            <?php
+<form method="POST" action="">
+    <label for="teacher_id">Select Teacher:</label>
+    <select name="teacher_id" id="teacher_id" required>
+        <option value="">Select a Teacher</option>
+        <?php
+        while ($row = $teachers_result->fetch_assoc()) {
+            $selected = isset($teacher_info) && $teacher_info['t_id'] == $row['t_id'] ? 'selected' : '';
+            echo "<option value='{$row['t_id']}' $selected>{$row['t_lname']}, {$row['t_fname']}</option>";
+        }
+        ?>
+    </select><br><br>
+
+    <label for="salary">Salary:</label>
+    <input type="number" id="salary" name="salary" value="<?php echo isset($teacher_info) ? $teacher_info['salary'] : ''; ?>" required><br><br>
+
+    <label for="background_check">Background Check:</label>
+    <select name="background_check" id="background_check" required>
+        <option value="1" <?php echo isset($teacher_info) && $teacher_info['background_check'] == 1 ? 'selected' : ''; ?>>Yes</option>
+        <option value="0" <?php echo isset($teacher_info) && $teacher_info['background_check'] == 0 ? 'selected' : ''; ?>>No</option>
+    </select><br><br>
+
+    <label for="hire_date">Hire Date:</label>
+    <input type="date" id="hire_date" name="hire_date" value="<?php echo isset($teacher_info) ? $teacher_info['hire_date'] : ''; ?>" required><br><br>
+
+    <input type="submit" name="submit" value="Update Teacher">
+</form>
+
+<h3>Teacher Information List</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Salary</th>
+            <th>Hire Date</th>
+            <th>Background Check</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        // Include database connection
+        include 'db_connect.php';
+
+        // SQL to fetch all teacher data including salary, hire date, and background check
+        $sql_teachers = "SELECT t.t_title, t.t_fname, t.t_lname, t.t_address, t.t_phone, t.t_dob, t.t_gender, t.t_email, t.subject, t.salary, t.hire_date, t.background_check
+                         FROM teacher t";
+
+        // Execute the query
+        $teachers_result = $conn->query($sql_teachers);
+
+        // Display the teachers in the table
+        if ($teachers_result->num_rows > 0) {
             while ($row = $teachers_result->fetch_assoc()) {
-                $selected = isset($teacher_info) && $teacher_info['t_id'] == $row['t_id'] ? 'selected' : '';
-                echo "<option value='{$row['t_id']}' $selected>{$row['t_lname']}, {$row['t_fname']}</option>";
+                // Check if the background_check is 1 or 0, and display "Yes" or "No"
+                $background_check = ($row['background_check'] == 1) ? 'Yes' : 'No';
+                
+                echo "<tr>
+                        <td>" . $row['t_title'] . "</td>
+                        <td>" . $row['t_fname'] . "</td>
+                        <td>" . $row['t_lname'] . "</td>
+                        <td>" . $row['t_address'] . "</td>
+                        <td>" . $row['t_phone'] . "</td>
+                        <td>" . $row['t_dob'] . "</td>
+                        <td>" . $row['t_gender'] . "</td>
+                        <td>" . $row['t_email'] . "</td>
+                        <td>" . $row['subject'] . "</td>
+                        <td>" . $row['salary'] . "</td>
+                        <td>" . $row['hire_date'] . "</td>
+                        <td>" . $background_check . "</td>
+                    </tr>";
             }
-            ?>
-        </select><br><br>
+        } else {
+            echo "<tr><td colspan='12'>No teachers found</td></tr>";
+        }
 
-        <label for="salary">Salary:</label>
-        <input type="number" id="salary" name="salary" value="<?php echo isset($teacher_info) ? $teacher_info['salary'] : ''; ?>" required><br><br>
+        // Close the database connection
+        $conn->close();
+        ?>
+    </tbody>
+</table>
 
-        <label for="background_check">Background Check:</label>
-        <select name="background_check" id="background_check" required>
-            <option value="1" <?php echo isset($teacher_info) && $teacher_info['background_check'] == 1 ? 'selected' : ''; ?>>Yes</option>
-            <option value="0" <?php echo isset($teacher_info) && $teacher_info['background_check'] == 0 ? 'selected' : ''; ?>>No</option>
-        </select><br><br>
-
-        <label for="hire_date">Hire Date:</label>
-        <input type="date" id="hire_date" name="hire_date" value="<?php echo isset($teacher_info) ? $teacher_info['hire_date'] : ''; ?>" required><br><br>
-
-        <input type="submit" name="submit" value="Update Teacher">
-    </form>
 
 </body>
 </html>

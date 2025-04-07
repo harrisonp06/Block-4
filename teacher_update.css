@@ -127,7 +127,49 @@ input[type="submit"]:hover {
 }
 
 
-/* Responsive Design */
+/* Form Styling */
+form {
+    max-width: 600px;
+    margin: 0 auto 40px; /* Add bottom margin for space between the form and the table */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 40px; /* Added top margin to create space between the form and table */
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Header Styling */
+th, td {
+    padding: 12px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #388e3c; /* Green color for header */
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:hover td {
+    background-color: #f1f1f1; /* Light gray hover effect */
+}
+
+/* Responsive Design for Small Screens */
 @media screen and (max-width: 768px) {
     body {
         padding: 10px;
@@ -139,6 +181,12 @@ input[type="submit"]:hover {
     }
 
     table, th, td {
-        font-size: 14px;
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    table th, table td {
+        padding: 10px; /* Adjust padding for better readability */
     }
 }
+
+

@@ -12,15 +12,6 @@
         <h1>St Alphonsus Primary School</h1>
     </header>
     
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="teacher.html">Teachers</a></li>
-            <li><a href="parent.html">Parents</a></li>
-            <li><a href="admin_login.html">Admins</a></li>
-        </ul>
-    </nav>
-    
     <div class="container">
         <h2>Parent & Pupil Information Form</h2>
         <form action="parent_info.php" method="POST" onsubmit="return validateDOB()">
@@ -65,14 +56,14 @@
 
             <!-- Date of Birth -->
             <div class="form-group">
-                <label for="dob">Date of Birth</label>
-                <input type="date" id="dob" name="dob" required>
+                <label for="parentDOB">Date of Birth</label>
+                <input type="date" id="parentDOB" name="dob" required>
             </div>
 
             <!-- Gender -->
             <div class="form-group">
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender" required>
+                <label for="parentGender">Gender</label>
+                <select id="parentGender" name="gender" required>
                     <option value="">Select Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -113,13 +104,27 @@
             </div>
             
             <div class="form-group">
-                <label for="dob">Date of Birth</label>
-                <input type="date" id="dob" name="dob" required>
+                <label for="pupilDOB">Date of Birth</label>
+                <input type="date" id="pupilDOB" name="pupilDOB" required>
+            </div>
+
+            <div class="form-group">
+                <label for="year-group">Year Group</label>
+                <select id="year-group" name="year-group" required>
+                    <option value="">Select Year Group</option>
+                    <option value="Recption">Reception</option>
+                    <option value="Year 1">Year 1</option>
+                    <option value="Year 2">Year 2</option>
+                    <option value="Year 3">Year 3</option>
+                    <option value="Year 4">Year 4</option>
+                    <option value="Year 5">Year 5</option>
+                    <option value="Year 6">Year 6</option>
+                </select>
             </div>
             
             <div class="form-group">
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender" required>
+                <label for="pupilGender">Gender</label>
+                <select id="pupilGender" name="pupilGender" required>
                     <option value="">Select Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
