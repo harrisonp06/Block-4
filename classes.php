@@ -1,4 +1,5 @@
 <?php
+//own code starts
 // Enable error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -141,4 +142,6 @@ if (isset($_GET['year_group'])) {
 <?php
 // Close the database connection
 $conn->close();
+
+//own code ends
 ?>

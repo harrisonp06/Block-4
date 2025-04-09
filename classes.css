@@ -1,3 +1,6 @@
+/* own code starts */
+
+/* Apply a consistent box model and reset default spacing */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,6 +8,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Set general body styles including background, font and spacing */
 body {
     background-color: #f5f5f5;
     color: #333;
@@ -13,6 +17,7 @@ body {
     padding: 20px;
 }
 
+/* Header styling: green background and centered white text */
 header {
     background-color: #2e7d32;
     color: white;
@@ -20,21 +25,25 @@ header {
     padding: 1.5rem 0;
 }
 
+/* Navigation bar styling */
 nav {
     background-color: #388e3c;
     padding: 1rem 0;
 }
 
+/* Layout for nav list: horizontal and centered */
 nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
 }
 
+/* Space between nav list items */
 nav li {
     margin: 0 15px;
 }
 
+/* Link styling in nav: white, bold, rounded, hover transition */
 nav a {
     color: white;
     text-decoration: none;
@@ -44,30 +53,34 @@ nav a {
     transition: background-color 0.3s;
 }
 
+/* Hover effect for nav links */
 nav a:hover {
     background-color: #43a047;
 }
 
+/* Container for page content with max width and padding */
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Styling for section titles */
 h2 {
     text-align: center;
     margin-bottom: 2rem;
     color: #2e7d32;
 }
 
+/* Centered paragraph text with larger size */
 p {
     text-align: center;
     font-size: 18px;
 }
 
-/* Style the Update Class Form */
+/* Style for the update class form */
 form {
-    max-width: 600px; /* Adjust the width to prevent the form from spanning the entire screen */
+    max-width: 600px;
     margin: 0 auto;
     background-color: white;
     padding: 20px;
@@ -75,18 +88,21 @@ form {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Form header */
 h3 {
     text-align: center;
     color: #388e3c;
     margin-bottom: 20px;
 }
 
+/* Label styles: spacing and block layout */
 label {
     font-size: 16px;
     margin-bottom: 8px;
     display: block;
 }
 
+/* Inputs and selects full-width with padding and border */
 input, select {
     width: 100%;
     padding: 10px;
@@ -96,6 +112,7 @@ input, select {
     font-size: 16px;
 }
 
+/* Submit button styling */
 input[type="submit"] {
     background-color: #4caf50;
     color: white;
@@ -107,64 +124,70 @@ input[type="submit"] {
     transition: background-color 0.3s;
 }
 
+/* Hover state for submit button */
 input[type="submit"]:hover {
     background-color: #388e3c;
 }
 
-/* Style success and error messages */
+/* Styling for success messages */
 .success-message {
     color: #2e7d32;
     font-size: 18px;
     margin-top: 20px;
 }
 
+/* Styling for error messages */
 .error-message {
     color: #d32f2f;
     font-size: 18px;
     margin-top: 20px;
 }
 
-/* Style for the Classes Table */
-/* Add more space between the form and the table */
+/* Form spacing when used with table */
 form {
     max-width: 600px;
-    margin: 0 auto 40px; /* Add bottom margin for space between the form and the table */
+    margin: 0 auto 40px; /* Adds space under form */
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Table layout and appearance */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 40px; /* Added top margin to create space between the form and table */
+    margin-top: 40px;
     background-color: white;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Padding and border for table cells */
 th, td {
     padding: 12px 20px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
+/* Header row background and color */
 th {
     background-color: #388e3c;
     color: white;
 }
 
+/* Alternate row background */
 td {
     background-color: #f9f9f9;
 }
 
+/* Highlight row on hover */
 tr:hover td {
     background-color: #f1f1f1;
 }
 
-/* Responsive Design for Small Screens */
+/* Responsive adjustments for smaller screens */
 @media screen and (max-width: 768px) {
     body {
         padding: 10px;
@@ -183,3 +206,4 @@ tr:hover td {
         padding: 10px;
     }
 }
+/* own code ends */

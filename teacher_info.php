@@ -1,4 +1,5 @@
 <?php
+// own code starts
 include 'db_connect.php';
 
 // Check if the form is submitted
@@ -42,3 +43,8 @@ $conn->close();
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
+
+//own code ends
+?>
+

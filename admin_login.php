@@ -1,35 +1,38 @@
 <?php
-include 'db_connect.php';
+// own code starts
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the form data
-    $username = $_POST['username'];
-    $entered_password = $_POST['password'];
+include 'db_connect.php'; // Include the file to connect to the database
 
-    // Prepare a query to check if the username exists
-    $stmt = $conn->prepare("SELECT * FROM admin WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
+if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted
 
-    if ($result->num_rows > 0) {
-        $admin = $result->fetch_assoc(); // Get the user data
-        // Verify the password
-        if (password_verify($entered_password, $admin['password'])) {
-            echo "Login successful!";
-            // You can set a session here to track logged-in users, for example:
-            session_start();
-            $_SESSION['username'] = $username;
-            header('Location: admin.html'); // Redirect to admin dashboard
+    $username = $_POST['username']; // Get the username from the form
+    $entered_password = $_POST['password']; // Get the password from the form
+
+    $stmt = $conn->prepare("SELECT * FROM admin WHERE username = ?"); // Prepare SQL statement to find the admin
+    $stmt->bind_param("s", $username); // Bind the username to the query
+    $stmt->execute(); // Execute the query
+    $result = $stmt->get_result(); // Get the result set
+
+    if ($result->num_rows > 0) { // If a user was found
+        $admin = $result->fetch_assoc(); // Fetch user data as an associative array
+
+        if (password_verify($entered_password, $admin['password'])) { // Check if entered password matches hashed one
+            session_start(); // Start a new session
+            $_SESSION['username'] = $username; // Store the username in the session
+            header('Location: admin.html'); // Redirect to the admin dashboard
+            exit(); // Ensure no further code runs after redirect
         } else {
-            echo "Invalid password.";
+            echo "Invalid password."; // Show error if password doesn't match
         }
+
     } else {
-        echo "Invalid username.";
+        echo "Invalid username."; // Show error if no matching user is found
     }
 
-    $stmt->close();
+    $stmt->close(); // Close the prepared statement
 }
 
-$conn->close();
+$conn->close(); // Close the database connection
+
+// own code ends
 ?>

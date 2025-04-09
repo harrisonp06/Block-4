@@ -1,3 +1,4 @@
+<!-- own code starts -->
 <?php
 include 'db_connect.php';
 
@@ -7,8 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstName = empty($_POST['firstName']) ? NULL : $_POST['firstName'];
     $lastName = empty($_POST['lastName']) ? NULL : $_POST['lastName'];
     $address = empty($_POST['address']) ? NULL : $_POST['address'];
-    $email = empty($_POST['email']) ? NULL : filter_var($_POST['email'],);
-    $phone = empty($_POST['phone']) ? NULL : filter_var($_POST['phone'],);
+    $email = empty($_POST['email']) ? NULL : filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $phone = empty($_POST['phone']) ? NULL : filter_var($_POST['phone'], FILTER_SANITIZE_NUMBER_INT);
     $dob = empty($_POST['dob']) ? NULL : $_POST['dob'];  // Make sure date format is correct
     $gender = empty($_POST['gender']) ? NULL : $_POST['gender'];
     $relationship = empty($_POST['relationship']) ? NULL : $_POST['relationship'];
@@ -94,3 +95,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Close connection
 $conn->close();
 ?>
+<!-- own code ends -->

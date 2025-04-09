@@ -1,16 +1,26 @@
-* {
+/* own code starts */
+
+/* Global settings for all elements: 
+   Box-sizing ensures padding/borders don't affect width/height,
+   Margin and padding reset to 0 for consistency,
+   Font set to Arial/Helvetica/sans-serif for readability */
+   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Base body styling: 
+   Light grey background, dark text color, and increased line height for readability */
 body {
     background-color: #f5f5f5;
     color: #333;
     line-height: 1.6;
 }
 
+/* Header styling: 
+   Green background, white centered text with vertical padding */
 header {
     background-color: #2e7d32;
     color: white;
@@ -18,21 +28,26 @@ header {
     padding: 1.5rem 0;
 }
 
+/* Navigation bar background color and vertical padding */
 nav {
     background-color: #388e3c;
     padding: 1rem 0;
 }
 
+/* Style unordered list in nav to appear horizontal and centered */
 nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
 }
 
+/* Add horizontal spacing between nav items */
 nav li {
     margin: 0 15px;
 }
 
+/* Style navigation links: 
+   White text, no underline, padding, rounded corners, bold font, and transition effect */
 nav a {
     color: white;
     text-decoration: none;
@@ -42,28 +57,37 @@ nav a {
     transition: background-color 0.3s;
 }
 
+/* Hover effect for navigation links: 
+   Changes background color when hovered */
 nav a:hover {
     background-color: #43a047;
 }
 
+/* Container styling: 
+   Centered content with max width and internal padding */
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Heading style: 
+   Centered green text with bottom margin */
 h2 {
     text-align: center;
     margin-bottom: 2rem;
     color: #2e7d32;
 }
 
+/* Paragraph style: 
+   Centered text and slightly larger font size */
 p {
     text-align: center;
     font-size: 18px;
 }
 
-
+/* Admin options container: 
+   Vertically stacked buttons, centered with spacing between them */
 .admin-options {
     display: flex;
     flex-direction: column;
@@ -72,6 +96,8 @@ p {
     margin-top: 20px;
 }
 
+/* Style for each admin button: 
+   Green background, white bold text, centered, with padding and hover effect */
 .admin-button {
     display: block;
     width: 60%;
@@ -86,15 +112,22 @@ p {
     transition: background-color 0.3s;
 }
 
+/* Hover effect for admin buttons: 
+   Darker green background on hover */
 .admin-button:hover {
     background-color: #388e3c;
 }
 
+/* Special styling for logout button: 
+   Red background to indicate caution/different action */
 .logout {
     background-color: #d32f2f;
 }
 
+/* Hover effect for logout button: 
+   Even darker red on hover */
 .logout:hover {
     background-color: #b71c1c;
 }
 
+/* own code ends */

@@ -1,4 +1,5 @@
 <?php
+//own code ends
 include 'db_connect.php';
 session_start();
 
@@ -156,4 +157,5 @@ if (isset($_GET['teacher_id'])) {
 
 <?php
 $conn->close();
+//own code ends
 ?>
